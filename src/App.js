@@ -1,9 +1,12 @@
+import Header from './components/Header';
+
 function App() {
   return (
-    <div className='container'>
-      <h1>Hello from the App component</h1>
-      <p>Hi there!</p>
-    </div>
+    <>
+      <Header text='Hello World' />
+      <div className='container'></div>
+      <h1>My App</h1>
+    </>
   );
 }
 
