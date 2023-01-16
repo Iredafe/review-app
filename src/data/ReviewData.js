@@ -1,4 +1,4 @@
-const FeedbackData = [
+const ReviewData = [
   {
     id: 1,
     rating: 10,
@@ -16,4 +16,4 @@ const FeedbackData = [
   },
 ];
 
-export default FeedbackData;
+export default ReviewData;
