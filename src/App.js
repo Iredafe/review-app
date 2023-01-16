@@ -1,9 +1,12 @@
 import Header from './components/Header';
+import ReviewItem from './components/ReviewItem';
+import './index.css';
 
 function App() {
   return (
     <>
-      <Header text='Hello World' />
+      <Header />
+      <ReviewItem />
       <div className='container'></div>
       <h1>My App</h1>
     </>
