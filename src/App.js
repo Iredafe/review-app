@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <ReviewList />
+      <ReviewList review={review} />
       <div className='container'></div>
     </>
   );
