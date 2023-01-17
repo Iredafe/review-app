@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './components/Header';
 import ReviewList from './components/ReviewList';
 import ReviewData from './data/ReviewData';
