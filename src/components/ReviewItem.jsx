@@ -1,10 +1,7 @@
+import Card from './shared/Card';
+
 function ReviewItem({ item }) {
-  return (
-    <div className='card'>
-      <div className='num-display'>{item.rating}</div>
-      <div className='text-display'>{item.text}</div>
-    </div>
-  );
+  return <Card rating={item.rating} text={item.text} />;
 }
 
 export default ReviewItem;
