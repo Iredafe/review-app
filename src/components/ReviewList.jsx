@@ -7,7 +7,13 @@ function ReviewList({ review }) {
   return (
     <div className='feedback-list'>
       {review.map((item) => (
-        <ReviewItem key={review.id} item={item} />
+        <ReviewItem
+          key={review.id}
+          item={item}
+          handleDelete={(id) => {
+            console.log(id);
+          }}
+        />
       ))}
     </div>
   );
