@@ -7,10 +7,15 @@ import { useState } from 'react';
 function App() {
   const [review, setReview] = useState(ReviewData);
 
+  const deleteReviewItem = (id) => {
+    if (window.confirm('Are you sure you want to delete this review?')) {
+      setReview(review.filter((review) => review.id !== id));
+    }
+  };
   return (
     <>
       <Header />
-      <ReviewList review={review} />
+      <ReviewList review={review} handleDelete={deleteReviewItem} />
       <div className='container'></div>
     </>
   );
