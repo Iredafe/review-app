@@ -3,6 +3,7 @@ import Header from './components/Header';
 import ReviewList from './components/ReviewList';
 import ReviewData from './data/ReviewData';
 import { useState } from 'react';
+import ReviewForm from './components/ReviewForm';
 
 function App() {
   const [review, setReview] = useState(ReviewData);
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <Header />
+      <ReviewForm />
       <ReviewList review={review} handleDelete={deleteReviewItem} />
       <div className='container'></div>
     </>
