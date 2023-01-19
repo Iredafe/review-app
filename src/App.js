@@ -14,10 +14,16 @@ function App() {
       setReview(review.filter((review) => review.id !== id));
     }
   };
+
+  const addReviewItem = (newReview) => {
+    console.log({ newReview });
+    if (window.confirm('Are you sure you want to post this review?')) {
+    }
+  };
   return (
     <>
       <Header />
-      <ReviewForm />
+      <ReviewForm review={review} handleAdd={addReviewItem} />
       <ReviewStats review={review} />
       <ReviewList review={review} handleDelete={deleteReviewItem} />
       <div className='container'></div>

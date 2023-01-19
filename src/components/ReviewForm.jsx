@@ -4,7 +4,7 @@ import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
 
-function ReviewForm() {
+function ReviewForm({ review, handleAdd }) {
   const [text, setText] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [message, setMessage] = useState('');
@@ -23,9 +23,20 @@ function ReviewForm() {
     setText(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text.trim().length > 10) {
+      const newReview = {
+        text,
+        rating,
+      };
+      handleAdd(newReview);
+    }
+  };
+
   return (
     <Card>
-      <form action=''>
+      <form action='' onSubmit={handleSubmit}>
         <h2>How would you rate your experience with our product?</h2>
         <RatingSelect
           select={(rating) => {
