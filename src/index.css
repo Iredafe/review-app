@@ -37,7 +37,7 @@ header {
   color: #333;
   border-radius: 15px;
   padding: 40px 50px;
-  margin: 20px 0;
+  margin: 20px 30px;
   position: relative;
 }
 
@@ -123,6 +123,7 @@ input:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 20px 30px;
 }
 
 .num-display {
