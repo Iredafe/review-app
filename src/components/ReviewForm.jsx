@@ -8,6 +8,7 @@ function ReviewForm() {
   const [text, setText] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [message, setMessage] = useState('');
+  const [rating, setRating] = useState(10);
   const handleTextChange = (e) => {
     if (text === '') {
       setButtonDisabled(true);
@@ -26,7 +27,11 @@ function ReviewForm() {
     <Card>
       <form action=''>
         <h2>How would you rate your experience with our product?</h2>
-        <RatingSelect />
+        <RatingSelect
+          select={(rating) => {
+            setRating(rating);
+          }}
+        />
         <div className='input-group'>
           <input
             onChange={handleTextChange}
