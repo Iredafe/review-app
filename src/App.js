@@ -4,6 +4,7 @@ import ReviewList from './components/ReviewList';
 import ReviewData from './data/ReviewData';
 import { useState } from 'react';
 import ReviewForm from './components/ReviewForm';
+import ReviewStats from './components/ReviewStats';
 
 function App() {
   const [review, setReview] = useState(ReviewData);
@@ -17,6 +18,7 @@ function App() {
     <>
       <Header />
       <ReviewForm />
+      <ReviewStats review={review} />
       <ReviewList review={review} handleDelete={deleteReviewItem} />
       <div className='container'></div>
     </>

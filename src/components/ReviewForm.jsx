@@ -8,6 +8,8 @@ function ReviewForm() {
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
+
+  const isDisabled = text.length < 10 ? false : true;
   return (
     <Card>
       <form action=''>
@@ -19,7 +21,9 @@ function ReviewForm() {
             placeholder='Write a review'
             value={text}
           />
-          <Button>Send</Button>
+          <Button type='submit' isDisabled={isDisabled}>
+            Send
+          </Button>
         </div>
       </form>
     </Card>
