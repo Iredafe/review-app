@@ -8,6 +8,7 @@ import { useState } from 'react';
 import ReviewForm from './components/ReviewForm';
 import ReviewStats from './components/ReviewStats';
 import AboutPage from './pages/AboutPage';
+import AboutIconLink from './components/AboutIconLink';
 
 function App() {
   const [review, setReview] = useState(ReviewData);
@@ -35,6 +36,7 @@ function App() {
                 <ReviewForm review={review} handleAdd={addReviewItem} />
                 <ReviewStats review={review} />
                 <ReviewList review={review} handleDelete={deleteReviewItem} />
+                <AboutIconLink />
               </>
             }
           ></Route>
