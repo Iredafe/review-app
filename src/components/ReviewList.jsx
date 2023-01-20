@@ -1,4 +1,3 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import ReviewItem from './ReviewItem';
 import React from 'react';
 function ReviewList({ review, handleDelete }) {

@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Header from './components/Header';
 import ReviewList from './components/ReviewList';
@@ -6,6 +7,7 @@ import ReviewData from './data/ReviewData';
 import { useState } from 'react';
 import ReviewForm from './components/ReviewForm';
 import ReviewStats from './components/ReviewStats';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   const [review, setReview] = useState(ReviewData);
@@ -18,17 +20,29 @@ function App() {
 
   const addReviewItem = (newReview) => {
     newReview.id = uuid();
-    console.log({ newReview });
     setReview([newReview, ...review]);
   };
   return (
-    <>
+    <Router>
       <Header />
-      <ReviewForm review={review} handleAdd={addReviewItem} />
-      <ReviewStats review={review} />
-      <ReviewList review={review} handleDelete={deleteReviewItem} />
-      <div className='container'></div>
-    </>
+      <div className='container'>
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={
+              <>
+                <ReviewForm review={review} handleAdd={addReviewItem} />
+                <ReviewStats review={review} />
+                <ReviewList review={review} handleDelete={deleteReviewItem} />
+              </>
+            }
+          ></Route>
+
+          <Route path='/about' element={<AboutPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
