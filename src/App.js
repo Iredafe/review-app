@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Header from './components/Header';
@@ -14,16 +13,6 @@ import { ReviewProvider } from './context/ReviewContext';
 function App() {
   const [review, setReview] = useState(ReviewData);
 
-  const deleteReviewItem = (id) => {
-    if (window.confirm('Are you sure you want to delete this review?')) {
-      setReview(review.filter((review) => review.id !== id));
-    }
-  };
-
-  const addReviewItem = (newReview) => {
-    newReview.id = uuid();
-    setReview([newReview, ...review]);
-  };
   return (
     <ReviewProvider>
       <Router>
@@ -35,9 +24,9 @@ function App() {
               path='/'
               element={
                 <>
-                  <ReviewForm handleAdd={addReviewItem} />
+                  <ReviewForm />
                   <ReviewStats />
-                  <ReviewList handleDelete={deleteReviewItem} />
+                  <ReviewList />
                   <AboutIconLink />
                 </>
               }

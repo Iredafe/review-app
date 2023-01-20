@@ -3,8 +3,11 @@ import { useState } from 'react';
 import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
+import ReviewContext from '../context/ReviewContext';
+import { useContext } from 'react';
 
-function ReviewForm({ handleAdd }) {
+function ReviewForm() {
+  const { addReviewItem } = useContext(ReviewContext);
   const [text, setText] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [message, setMessage] = useState('');
@@ -31,7 +34,7 @@ function ReviewForm({ handleAdd }) {
         rating,
       };
       setText('');
-      handleAdd(newReview);
+      addReviewItem(newReview);
     }
   };
 
