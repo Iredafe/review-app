@@ -35,9 +35,9 @@ function App() {
               path='/'
               element={
                 <>
-                  <ReviewForm review={review} handleAdd={addReviewItem} />
-                  <ReviewStats review={review} />
-                  <ReviewList review={review} handleDelete={deleteReviewItem} />
+                  <ReviewForm handleAdd={addReviewItem} />
+                  <ReviewStats />
+                  <ReviewList handleDelete={deleteReviewItem} />
                   <AboutIconLink />
                 </>
               }

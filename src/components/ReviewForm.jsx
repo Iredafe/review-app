@@ -4,7 +4,7 @@ import Card from './shared/Card';
 import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
 
-function ReviewForm({ review, handleAdd }) {
+function ReviewForm({ handleAdd }) {
   const [text, setText] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [message, setMessage] = useState('');

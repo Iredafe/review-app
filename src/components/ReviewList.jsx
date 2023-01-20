@@ -1,6 +1,10 @@
 import ReviewItem from './ReviewItem';
 import React from 'react';
-function ReviewList({ review, handleDelete }) {
+import { useContext } from 'react';
+import ReviewContext from '../context/ReviewContext';
+function ReviewList({ handleDelete }) {
+  const { review } = useContext(ReviewContext);
+
   if (!review || review.length === 0) {
     return <p>No Feedback yet!!</p>;
   }

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-function ReviewStats({ review }) {
+import ReviewContext from '../context/ReviewContext';
+import { useContext } from 'react';
+function ReviewStats() {
+  const { review } = useContext(ReviewContext);
   let numberOfReviews = review.length;
   let averageRating =
     review.reduce((accumulator, current) => {
