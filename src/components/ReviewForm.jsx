@@ -30,6 +30,7 @@ function ReviewForm({ review, handleAdd }) {
         text,
         rating,
       };
+      setText('');
       handleAdd(newReview);
     }
   };

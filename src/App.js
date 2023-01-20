@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import React from 'react';
 import Header from './components/Header';
 import ReviewList from './components/ReviewList';
@@ -16,9 +17,9 @@ function App() {
   };
 
   const addReviewItem = (newReview) => {
+    newReview.id = uuid();
     console.log({ newReview });
-    if (window.confirm('Are you sure you want to post this review?')) {
-    }
+    setReview([newReview, ...review]);
   };
   return (
     <>
