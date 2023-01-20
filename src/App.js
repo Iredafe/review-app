@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Header from './components/Header';
 import ReviewList from './components/ReviewList';
-import ReviewData from './data/ReviewData';
-import { useState } from 'react';
 import ReviewForm from './components/ReviewForm';
 import ReviewStats from './components/ReviewStats';
 import AboutPage from './pages/AboutPage';
