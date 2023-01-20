@@ -1,10 +1,13 @@
 import Card from './shared/Card';
 import React from 'react';
 import { FaTimes } from 'react-icons/fa';
-function ReviewItem({ item, handleDelete }) {
+import ReviewContext from '../context/ReviewContext';
+import { useContext } from 'react';
+function ReviewItem({ item }) {
+  const { deleteReviewItem } = useContext(ReviewContext);
   return (
     <Card reverse={false}>
-      <button onClick={() => handleDelete(item.id)} className='close'>
+      <button onClick={() => deleteReviewItem(item.id)} className='close'>
         <FaTimes color='purple' />
       </button>
       <div className='num-display' key={item.id}>

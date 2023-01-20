@@ -11,8 +11,6 @@ import AboutIconLink from './components/AboutIconLink';
 import { ReviewProvider } from './context/ReviewContext';
 
 function App() {
-  const [review, setReview] = useState(ReviewData);
-
   return (
     <ReviewProvider>
       <Router>
