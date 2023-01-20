@@ -9,6 +9,7 @@ import ReviewForm from './components/ReviewForm';
 import ReviewStats from './components/ReviewStats';
 import AboutPage from './pages/AboutPage';
 import AboutIconLink from './components/AboutIconLink';
+import { ReviewProvider } from './context/ReviewContext';
 
 function App() {
   const [review, setReview] = useState(ReviewData);
@@ -24,27 +25,29 @@ function App() {
     setReview([newReview, ...review]);
   };
   return (
-    <Router>
-      <Header />
-      <div className='container'>
-        <Routes>
-          <Route
-            exact
-            path='/'
-            element={
-              <>
-                <ReviewForm review={review} handleAdd={addReviewItem} />
-                <ReviewStats review={review} />
-                <ReviewList review={review} handleDelete={deleteReviewItem} />
-                <AboutIconLink />
-              </>
-            }
-          ></Route>
+    <ReviewProvider>
+      <Router>
+        <Header />
+        <div className='container'>
+          <Routes>
+            <Route
+              exact
+              path='/'
+              element={
+                <>
+                  <ReviewForm review={review} handleAdd={addReviewItem} />
+                  <ReviewStats review={review} />
+                  <ReviewList review={review} handleDelete={deleteReviewItem} />
+                  <AboutIconLink />
+                </>
+              }
+            ></Route>
 
-          <Route path='/about' element={<AboutPage />} />
-        </Routes>
-      </div>
-    </Router>
+            <Route path='/about' element={<AboutPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </ReviewProvider>
   );
 }
 
