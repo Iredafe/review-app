@@ -19,6 +19,14 @@ export const ReviewProvider = ({ children }) => {
     setReviewEdit({ item, edit: true });
   };
 
+  const updateReview = (id, updateItem) => {
+    console.log('update item', updateItem);
+    console.log('review', review);
+    setReview(
+      review.map((item) => (item.id === id ? { ...item, ...updateItem } : item))
+    );
+  };
+
   const addReviewItem = (newReview) => {
     newReview.id = uuid();
     setReview([newReview, ...review]);
@@ -32,6 +40,7 @@ export const ReviewProvider = ({ children }) => {
         addReviewItem,
         editReviewItem,
         reviewEdit,
+        updateReview,
       }}
     >
       {children}

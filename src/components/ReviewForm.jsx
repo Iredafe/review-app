@@ -6,7 +6,7 @@ import RatingSelect from './RatingSelect';
 import ReviewContext from '../context/ReviewContext';
 
 function ReviewForm() {
-  const { addReviewItem, reviewEdit } = useContext(ReviewContext);
+  const { addReviewItem, updateReview, reviewEdit } = useContext(ReviewContext);
   const [text, setText] = useState('');
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [message, setMessage] = useState('');
@@ -16,6 +16,7 @@ function ReviewForm() {
     if (reviewEdit.edit === true) {
       setButtonDisabled(false);
       setText(reviewEdit.item.text);
+      setRating(reviewEdit.item.rating);
     }
   }, [reviewEdit]);
   const handleTextChange = (e) => {
@@ -39,8 +40,12 @@ function ReviewForm() {
         text,
         rating,
       };
+      if (reviewEdit.edit === true) {
+        updateReview(reviewEdit.item.id, newReview);
+      } else {
+        addReviewItem(newReview);
+      }
       setText('');
-      addReviewItem(newReview);
     }
   };
 
