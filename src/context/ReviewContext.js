@@ -7,19 +7,33 @@ const ReviewContext = createContext();
 
 export const ReviewProvider = ({ children }) => {
   const [review, setReview] = useState(ReviewData);
-  console.log('review', review);
+  const [reviewEdit, setReviewEdit] = useState({ item: {}, edit: false });
+
   const deleteReviewItem = (id) => {
     if (window.confirm('Are you sure you want to delete this review?')) {
       setReview(review.filter((review) => review.id !== id));
     }
   };
 
+  const editReviewItem = (item) => {
+    setReviewEdit({ item, edit: true });
+  };
+
   const addReviewItem = (newReview) => {
     newReview.id = uuid();
     setReview([newReview, ...review]);
   };
+
   return (
-    <ReviewContext.Provider value={{ review, deleteReviewItem, addReviewItem }}>
+    <ReviewContext.Provider
+      value={{
+        review,
+        deleteReviewItem,
+        addReviewItem,
+        editReviewItem,
+        reviewEdit,
+      }}
+    >
       {children}
     </ReviewContext.Provider>
   );
