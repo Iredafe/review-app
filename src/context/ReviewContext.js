@@ -1,14 +1,25 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import React from 'react';
 import { v4 as uuid } from 'uuid';
-import ReviewData from '../data/ReviewData';
 
 const ReviewContext = createContext();
 
 export const ReviewProvider = ({ children }) => {
-  const [review, setReview] = useState(ReviewData);
+  const [review, setReview] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [reviewEdit, setReviewEdit] = useState({ item: {}, edit: false });
+  useEffect(() => {
+    fetchReview();
+  }, []);
 
+  const fetchReview = async () => {
+    const response = await fetch(
+      `http://localhost:5000/review?_sort=id&_order=desc`
+    );
+    const data = await response.json();
+    setReview(data);
+    setIsLoading(false);
+  };
   const deleteReviewItem = (id) => {
     if (window.confirm('Are you sure you want to delete this review?')) {
       setReview(review.filter((review) => review.id !== id));
@@ -41,6 +52,7 @@ export const ReviewProvider = ({ children }) => {
         editReviewItem,
         reviewEdit,
         updateReview,
+        isLoading,
       }}
     >
       {children}
