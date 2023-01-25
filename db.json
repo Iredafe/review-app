@@ -4,6 +4,11 @@
       "id": 1,
       "rating": 10,
       "text": "This is review item 1 coming from the backend"
+    },
+    {
+      "text": "I love this product a lot",
+      "rating": 7,
+      "id": 2
     }
   ]
 }

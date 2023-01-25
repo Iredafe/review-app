@@ -28,9 +28,17 @@ export const ReviewProvider = ({ children }) => {
     setReviewEdit({ item, edit: true });
   };
 
-  const updateReview = (id, updateItem) => {
+  const updateReview = async (id, updateItem) => {
+    const response = await fetch(`/review/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updateItem),
+    });
+    const data = await response.json();
     setReview(
-      review.map((item) => (item.id === id ? { ...item, ...updateItem } : item))
+      review.map((item) => (item.id === id ? { ...item, ...data } : item))
     );
   };
 
